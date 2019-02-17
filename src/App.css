@@ -31,3 +31,42 @@
     transform: rotate(360deg);
   }
 }
+
+/* added css */
+.product-image {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .item-body {
+    display: flex;
+    flex-direction: column;
+  }  
+
+  .item-body-row {
+    max-width: 100% !important;
+  }
+
+  .progress {
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .main-section-container {
+    flex-direction: column-reverse;
+  }
+
+  #summary-card {
+    max-width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  #product-section {
+    max-width: 100% !important;
+    margin-bottom: 20px;
+  }
+}

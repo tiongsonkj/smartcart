@@ -19,15 +19,20 @@ class Product extends React.Component {
                 <div className="card-header">
                     {item.name}
                 </div>
-                <div className="row pt-3">
-                    <div className="col-4">
-                        <img style={{width: 100, height: 100}} src={item.image} alt="product"/>                    
+                <div className="row pt-3 item-body">
+                    <div className="col-4 item-body-row">
+                        <img className="product-image" src={item.image} alt="product"/>                    
                     </div>
-                    <div className="col-4">
+                    <div className="col-4 item-body-row">
                         <p>Price: ${price.toLocaleString('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2})}</p>                        
-                        <p>Match: {(item.match * 100).toLocaleString('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2})}%</p>
+                        {/* <p>Match: {(item.match * 100).toLocaleString('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2})}%</p> */}
+                        <p style={{marginBottom: 0}}>Match:</p>                        
+                        <div className="progress" style={{ height: 25}}>
+                            {this.progressBar(item.match)}
+                            {/* <div className="progress-bar" role="progressbar" style={{width: '100%'}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div> */}
+                        </div>
                     </div>
-                    <div className="col-4">
+                    <div className="col-4 item-body-row">
                         <form onSubmit={this.addToCart}>
                             <div className="form-group">
                                 <label>Quantity: </label>
@@ -70,6 +75,25 @@ class Product extends React.Component {
         }
 
         this.props.addToCart(data);
+    }
+
+    progressBar = match => {
+        const matchPercent = match * 100;
+        let progressColor = '';
+        if (matchPercent < 25) {
+            progressColor = "progress-bar bg-danger text-dark"
+        } else if (matchPercent < 50) {
+            progressColor = "progress-bar bg-warning"
+        } else if (matchPercent < 75) {
+            progressColor = "progress-bar bg-info"
+        } else {
+            progressColor = "progress-bar bg-success"
+        }
+        return (
+            <div className={progressColor} role="progressbar" style={{width: `${matchPercent}%`, fontSize: 15}}>
+                {matchPercent.toLocaleString('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2})}%
+            </div>
+        )
     }
 }
 

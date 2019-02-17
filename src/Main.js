@@ -8,15 +8,15 @@ class Main extends React.Component {
     const sortedProducts = this.sortProducts();
     return (
         <>
-            <h1>Please pick a product you would like to purchase!</h1>
+            <h1>Please add a product you would like to purchase!</h1>
             <div className="container">
-                <div className="row">
-                    <div className="col-8 product-section">
+                <div className="row main-section-container">
+                    <div id="product-section" className="col-8">
                         {sortedProducts.map((product, index) => (
                             <Product key={index} item={product} />
                         ))}
                     </div>
-                    <div className="col-4 checkout-card">
+                    <div id="summary-card" className="col-4">
                         <CartSummary/>
                     </div>
                 </div>

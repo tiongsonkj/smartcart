@@ -26,7 +26,7 @@ class CartSummary extends React.Component {
         return (
             <div className="card">
                 <div className="card-header">
-                    Summary
+                    <i className="fas fa-shopping-cart"/> Summary
                 </div>
                 <div className="pt-3">
                     <p>Items in cart: {this.state.items}</p>
