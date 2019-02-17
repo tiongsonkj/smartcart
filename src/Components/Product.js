@@ -1,10 +1,9 @@
 import React from 'react';
 
 class Product extends React.Component {
-
-    //write a function that sorts the items by match.
     render() {
         const item = this.props.item
+        const price = parseFloat(item.price.slice(1,item.price.length));        
         return (
             <div className="card mb-3 pb-3">
                 <div className="card-header">
@@ -15,7 +14,7 @@ class Product extends React.Component {
                         <img style={{width: 100, height: 100}} src={item.image} alt="product"/>                    
                     </div>
                     <div className="col-4">
-                        <p>Price: {item.price}</p>
+                        <p>Price: ${price.toLocaleString('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2})}</p>                        
                         <p>Match: {(item.match * 100).toLocaleString('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2})}%</p>
                     </div>
                     <div className="col-4">
@@ -50,7 +49,6 @@ class Product extends React.Component {
         const quantity = document.getElementById("quantity").value;
         console.log(quantity);
         console.log("added!")
-
     }
 }
 
