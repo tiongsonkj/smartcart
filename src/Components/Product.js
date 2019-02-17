@@ -25,11 +25,9 @@ class Product extends React.Component {
                     </div>
                     <div className="col-4 item-body-row">
                         <p>Price: ${price.toLocaleString('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2})}</p>                        
-                        {/* <p>Match: {(item.match * 100).toLocaleString('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2})}%</p> */}
                         <p style={{marginBottom: 0}}>Match:</p>                        
                         <div className="progress" style={{ height: 25}}>
                             {this.progressBar(item.match)}
-                            {/* <div className="progress-bar" role="progressbar" style={{width: '100%'}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div> */}
                         </div>
                     </div>
                     <div className="col-4 item-body-row">
